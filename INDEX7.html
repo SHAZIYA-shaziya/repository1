@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Harry Potter Series</title>
+<style>
+  /* Reset and base */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    background: linear-gradient(135deg, #1b1b2f, #12121f);
+    color: #f3d250;
+    font-family: 'Georgia', serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+  header {
+    max-width: 400px;
+    text-align: center;
+    margin-bottom: 1em;
+    border-bottom: 2px solid #f3d250;
+    padding-bottom: 0.5rem;
+    user-select: none;
+  }
+  header h1 {
+    font-size: 2.4rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 0;
+    text-shadow: 0 0 10px #f3d250, 0 0 30px #f3d250;
+  }
+  main {
+    width: 100%;
+    max-width: 400px;
+    background: #2e2e44cc;
+    border-radius: 15px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 0 20px #f3d250aa;
+    overflow-y: auto;
+    max-height: 600px;
+  }
+  .book {
+    display: flex;
+    background: #3a3a54cc;
+    border-radius: 12px;
+    margin-bottom: 1.4rem;
+    overflow: hidden;
+    box-shadow: 0 0 10px #f3d25088;
+    cursor: default;
+    transition: box-shadow 0.3s ease;
+  }
+  .book:hover {
+    box-shadow: 0 0 20px #f3d250cc;
+  }
+  .cover {
+    flex-shrink: 0;
+    width: 120px;
+    height: 180px;
+    object-fit: cover;
+    border-right: 3px solid #f3d250cc;
+  }
+  .info {
+    padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin: 0 0 0.5rem 0;
+    text-shadow: 0 0 3px #f3d250cc;
+  }
+  .year {
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-bottom: 0.7rem;
+    color: #d1b84dcc;
+  }
+  .desc {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #f3d250dd;
+  }
+  footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.85rem;
+    color: #f3d250bb;
+    user-select: none;
+  }
+  @media (max-width: 420px) {
+    main {
+      padding: 0.8rem 1rem;
+    }
+    .book {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .cover {
+      width: 140px;
+      height: 210px;
+      border-right: none;
+      border-bottom: 3px solid #f3d250cc;
+      margin-bottom: 0.8rem;
+    }
+    .info {
+      justify-content: flex-start;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Harry Potter Series</h1>
+</header>
+<main>
+  <article class="book" aria-label="Harry Potter and the Philosopher's Stone">
+    <img class="cover" src="https://m.media-amazon.com/images/I/81YOuOGFCJL.jpg" alt="Harry Potter and the Philosopher's Stone cover" />
+    <div class="info">
+      <h2 class="title">Harry Potter and the Philosopher's Stone</h2>
+      <div class="year">1997</div>
+      <p class="desc">The beginning of Harry Potter's journey into the wizarding world as he discovers his magical heritage.</p>
+    </div>
+  </article>
+  <article class="book" aria-label="Harry Potter and the Chamber of Secrets">
+    <img class="cover" src="https://m.media-amazon.com/images/I/91HHqVTAJQL.jpg" alt="Harry Potter and the Chamber of Secrets cover" />
+    <div class="info">
+      <h2 class="title">Harry Potter and the Chamber of Secrets</h2>
+      <div class="year">1998</div>
+      <p class="desc">Harry returns to Hogwarts to uncover the mystery behind the ominous Chamber of Secrets.</p>
+    </div>
+  </article>
+  <article class="book" aria-label="Harry Potter and the Order of the Phoenix">
+    <img class="cover" src="https://m.media-amazon.com/images/I/81WcnNQ-TBL.jpg" alt="Harry Potter and the Order of the Phoenix cover" />
+    <div class="info">
+      <h2 class="title">Harry Potter and the Order of the Phoenix</h2>
+      <div class="year">2003</div>
+      <p class="desc">Harry faces the return of Voldemort and the authoritarian Dolores Umbridge at Hogwarts.</p>
+    </div>
+  </article>
+  <article class="book" aria-label="Harry Potter and the Half-Blood Prince">
+    <img class="cover" src="https://m.media-amazon.com/images/I/81lAPl9Fl0L.jpg" alt="Harry Potter and the Half-Blood Prince cover" />
+    <div class="info">
+      <h2 class="title">Harry Potter and the Half-Blood Prince</h2>
+      <div class="year">2005</div>
+      <p class="desc">Harry discovers a mysterious book and uncovers more about Voldemort's dark past.</p>
+    </div>
+  </article>
+  <article class="book" aria-label="Harry Potter: 20th Anniversary Editions (2020)">
+    <img class="cover" src="https://images-na.ssl-images-amazon.com/images/I/81YOuOGFCJL.jpg" alt="Harry Potter 20th Anniversary Editions cover" />
+    <div class="info">
+      <h2 class="title">Harry Potter: 20th Anniversary Editions</h2>
+      <div class="year">2020</div>
+      <p class="desc">Special editions released to celebrate 20 years since the original Harry Potter books, featuring new artwork and collectible editions.</p>
+    </div>
+  </article>
+<footer>
+  &copy; 2024 Harry Potter Series. All rights reserved.
+</footer>
+</body>
+</html>
+
+

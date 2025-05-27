@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Classifier</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        #imagePreview { max-width: 400px; max-height: 400px; margin: 10px 0; }
+        #results { margin-top: 20px; }
+        .prediction { margin: 5px 0; padding: 5px; background: #f0f0f0; }
+    </style>
+</head>
+<body>
+    <h1>Image Classifier</h1>
+    <input type="file" id="imageUpload" accept="image/*">
+    <img id="imagePreview" style="display: none;">
+    <div id="results"></div>
+
+    <script>
+        let net;
+        
+        async function loadModel() {
+            net = await mobilenet.load();
+            console.log('Model loaded');
+        }
+        
+        document.getElementById('imageUpload').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            const reader = new FileReader();
+            
+            reader.onload = function(event) {
+                const img = document.getElementById('imagePreview');
+                img.src = event.target.result;
+                img.style.display = 'block';
+                
+                classifyImage(img);
+            };
+            
+            reader.readAsDataURL(file);
+        });
+        
+        async function classifyImage(img) {
+            if (!net) {
+                await loadModel();
+            }
+            
+            const results = await net.classify(img);
+            displayResults(results);
+        }
+        
+        function displayResults(predictions) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<h3>Predictions:</h3>';
+            
+            predictions.forEach(prediction => {
+                const predDiv = document.createElement('div');
+                predDiv.className = 'prediction';
+                predDiv.innerHTML = `
+                    <strong>${prediction.className}</strong> 
+                    (${(prediction.probability * 100).toFixed(2)}% confidence)
+                `;
+                resultsDiv.appendChild(predDiv);
+            });
+        }
+        
+        // Load the model when page loads
+        loadModel();
+    </script>
+</body>
+</html>
